@@ -8,7 +8,7 @@ import * as realURLsAPI from './utils/realURLsAPI'
 class DouyuStream extends Component{
 
     state = {
-        roomNo : '235520',
+        roomNo : '122024',
         streamUri: 'http'
     }
 
