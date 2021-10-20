@@ -21,7 +21,7 @@ class DouyuStream extends Component{
     }
 
     queryPython = (roomNo) => {
-        realURLsAPI.querybyRoom(roomNo)
+        realURLsAPI.queryDouyuRoom(roomNo)
             .then((streamUri) => this.state(streamUri))
     }
 

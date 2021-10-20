@@ -10,8 +10,8 @@ const headers = {
   'Authorization': token
 }
 
-export const querybyRoom = () =>
-    fetch(`${api}/abc`, { headers })
+export const queryDouyuRoom = () =>
+    fetch(`${api}/douyu`, { headers })
         .then(res => res.json())
         .then(data => data.contacts)
 
