@@ -1,4 +1,4 @@
-const api = process.env.REACT_APP_CONTACTS_API_URL || 'http://back.npsex.com'
+const api = process.env.REACT_APP_CONTACTS_API_URL || 'http://localhost:8000'
 
 let token = localStorage.token
 
