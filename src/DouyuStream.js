@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types'
 import escapeRegExp from 'escape-string-regexp'
 import * as realURLsAPI from './utils/realURLsAPI'
+import * as browserOS from './utils/browserOS'
 // import sortBy from 'sort-by'
+
+const DADI_LION = 'http://dyscdnali1.douyucdn.cn/live/122024r69JkBOUVs.flv';
 
 class DouyuStream extends Component{
 
@@ -29,6 +32,7 @@ class DouyuStream extends Component{
 
         const {roomNo,streamUri} = this.state;
 
+        const playerURL = browserOS.isMac() ? `iina://open?url=${DADI_LION}` : `potplayer://open?url=${DADI_LION}`
         return (
             <div className='list-platforms'>
                 <div>
@@ -44,12 +48,13 @@ class DouyuStream extends Component{
                         直播源生成
                     </button>
 
-                    <Link
-                        to={roomNo}
+                    <a
                         className="add-contact"
+                        href={playerURL}
+                        target="_blank"
                     >
                         复制房间直播源{streamUri}
-                    </Link>
+                    </a>
                 </div>
             </div>
         );
