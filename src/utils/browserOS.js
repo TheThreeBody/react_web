@@ -1,4 +1,5 @@
-
+//http://caibaojian.com/js-browser.html
+// ios android https://blog.csdn.net/LonewoIf/article/details/88995150
 
 export const ua = navigator.userAgent.toLowerCase();
 const check = function(r){

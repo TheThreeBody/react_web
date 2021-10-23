@@ -32,7 +32,9 @@ class DouyuStream extends Component{
 
         const {roomNo,streamUri} = this.state;
 
-        const playerURL = browserOS.isMac() ? `iina://open?url=${DADI_LION}` : `potplayer://open?url=${DADI_LION}`
+        const DADIplayerURL = browserOS.isMac() ? `iina://open?url=${DADI_LION}` : `potplayer://${DADI_LION}`;
+        const playerURL = browserOS.isMac() ? `iina://open?url=${DADI_LION}` : `potplayer://${DADI_LION}`;
+
         return (
             <div className='list-platforms'>
                 <div>
@@ -54,6 +56,14 @@ class DouyuStream extends Component{
                         target="_blank"
                     >
                         复制房间直播源{streamUri}
+                    </a>
+
+                    <a
+                        className="add-contact"
+                        href={DADIplayerURL}
+                        target="_blank"
+                    >
+                        大帝直播流
                     </a>
                 </div>
             </div>
