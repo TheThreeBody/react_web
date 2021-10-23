@@ -12,7 +12,7 @@ class DouyuStream extends Component{
 
     state = {
         roomNo : '122024',
-        streamUri: 'http'
+        stream: ''
     }
 
     updateSearch = (query) => {
@@ -23,17 +23,21 @@ class DouyuStream extends Component{
         this.setState({roomNo: ''})
     }
 
+    trim = (oriURL) => oriURL
     queryPython = (roomNo) => {
         realURLsAPI.queryDouyuRoom(roomNo)
-            .then((streamUri) => this.state(streamUri))
+            .then((stream) => {
+               this.trim(stream)
+                this.setState(stream)
+            })
     }
 
     render() {
 
-        const {roomNo,streamUri} = this.state;
+        const {roomNo,stream} = this.state;
 
         const DADIplayerURL = browserOS.isMac() ? `iina://open?url=${DADI_LION}` : `potplayer://${DADI_LION}`;
-        const playerURL = browserOS.isMac() ? `iina://open?url=${DADI_LION}` : `potplayer://${DADI_LION}`;
+        const playerURL = browserOS.isMac() ? `iina://open?url=${stream}` : `potplayer://${stream}`;
 
         return (
             <div className='list-platforms'>
@@ -55,9 +59,10 @@ class DouyuStream extends Component{
                         href={playerURL}
                         target="_blank"
                     >
-                        复制房间直播源{streamUri}
+                        打开房间直播源{stream}
+                        {/*复制*/}
                     </a>
-
+                    <br/>
                     <a
                         className="add-contact"
                         href={DADIplayerURL}
