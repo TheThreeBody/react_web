@@ -1,4 +1,4 @@
-const api = process.env.REACT_APP_CONTACTS_API_URL || 'http://localhost:8000'
+const api = process.env.REACT_APP_CONTACTS_API_URL || 'http://back.npsex.com'
 
 let token = localStorage.token
 
@@ -9,9 +9,25 @@ const headers = {
   'Accept': 'application/json',
   'Authorization': token
 }
+const CROSheadersGET = {
+    method: 'GET',
+    mode: 'no-cors',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    },
+};
+const CROSheadersPOST = {
+    method: 'POST',
+    mode: 'cors',
+    credentials: 'include',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    // body: JSON.stringify(postData)
+};
 
 export const queryDouyuRoom = (roomNo) =>
-    fetch(`${api}/douyu?roomNo=${roomNo}`, { headers })
+    fetch(`${api}/douyu?roomNo=${roomNo}`, { CROSheadersGET })
         .then(res => res.json())
         .then(data => data.contacts)
 
