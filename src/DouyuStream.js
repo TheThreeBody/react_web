@@ -28,7 +28,7 @@ class DouyuStream extends Component{
         realURLsAPI.queryDouyuRoom(roomNo)
             .then((stream) => {
                // this.trim(stream)
-                this.setState(stream)
+                this.setState({stream})
             })
     }
 
