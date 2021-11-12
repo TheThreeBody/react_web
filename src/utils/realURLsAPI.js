@@ -31,6 +31,11 @@ export const queryDouyuRoom = (roomNo) =>
         .then(res => res.json())
         .then(data => data.stream)
 
+export const queryBilibiliRoom = (roomNo) =>
+    fetch(`${api}/bilibili?roomNo=${roomNo}`, { CROSheadersGET })
+        .then(res => res.json())
+        .then(data => data.stream)
+
 export const getAll = () =>
   fetch(`${api}/contacts`, { headers })
     .then(res => res.json())
