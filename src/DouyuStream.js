@@ -13,7 +13,8 @@ class DouyuStream extends Component{
     state = {
         OS:'windows',
         roomNo : '122024',
-        stream: ''
+        douyuStream: '',
+        bilibiliStream:''
     }
 
     updateSearch = (query) => {
@@ -24,34 +25,41 @@ class DouyuStream extends Component{
         this.setState({roomNo: ''})
     }
 
-    trim = (oriURL) => oriURL
+    trim = (oriURL) => oriURL;
+
     queryDouyuPy = (roomNo) => {
         realURLsAPI.queryDouyuRoom(roomNo)
-            .then((stream) => {
+            .then((flv) => {
                // this.trim(stream)
-                this.setState({stream})
+                this.setState({douyuStream: flv})
             })
     }
     queryBilibiliPy = (roomNo) => {
         realURLsAPI.queryBilibiliRoom(roomNo)
             .then((stream) => {
                 // this.trim(stream)
-                this.setState({stream})
+                this.setState({bilibiliStream: stream})
             })
+    }
+
+    handleQuery = (roomNo) => {
+        this.queryDouyuPy(roomNo);
+        this.queryBilibiliPy(roomNo);
     }
 
     handleEnterKey = (e) => {
         if(e.nativeEvent.keyCode === 13){ //e.nativeEvent获取原生的事件对像
-            this.queryDouyuPy(this.state.roomNo)
+            this.handleQuery(this.state.roomNo)
         }
     }
 
     render() {
 
-        const {OS, roomNo, stream} = this.state;
+        const {OS, roomNo, douyuStream,bilibiliStream} = this.state;
 
         const DADIplayerURL = browserOS.isMac() ? `iina://open?url=${DADI_LION}` : `potplayer://${DADI_LION}`;
-        const playerURL = browserOS.isMac() ? `iina://open?url=${stream}` : `potplayer://${stream}`;
+        const douyuURL = browserOS.isMac() ? `iina://open?url=${douyuStream}` : `potplayer://${douyuStream}`;
+        const bilibiliURL = browserOS.isMac() ? `iina://open?url=${bilibiliStream}` : `potplayer://${bilibiliStream}`;
 
         return (
             <div className='list-platforms'>
@@ -67,20 +75,23 @@ class DouyuStream extends Component{
                     <button onClick={() => this.queryDouyuPy(roomNo)}>
                         douyu直播源生成
                     </button>
-
+                    <br/>
+                    <p>
+                        斗鱼Link:
+                    </p>
                     <a
                         className="add-contact"
-                        href={playerURL}
+                        href={douyuURL}
                         target="_blank"
                     >
-                        打开房间直播源{stream}
+                        打开房间直播源{douyuStream}
                         {/*复制*/}
                     </a>
                     <br/>
                     手机版开发中
                     {/*OS === 'android'?*/}
                     {/*<Link onClick={}>*/}
-                        {/*点击复制{playerURL}*/}
+                        {/*点击复制{douyuURL}*/}
                     {/*</Link>*/}
                     {/*: <br/>*/}
                     {/*<a*/}
@@ -104,13 +115,15 @@ class DouyuStream extends Component{
                     <button onClick={() => this.queryBilibiliPy(roomNo)}>
                         B站直播源生成
                     </button>
-
+                    <p>
+                        B站Link:
+                    </p>
                     <a
                         className="add-contact"
-                        href={playerURL}
+                        href={bilibiliURL}
                         target="_blank"
                     >
-                        打开房间直播源{stream}
+                        打开房间直播源{bilibiliURL}
                         {/*复制*/}
                     </a>
                 </div>
