@@ -29,7 +29,7 @@ const CROSheadersPOST = {
 export const queryDouyuRoom = (roomNo) =>
     fetch(`${api}/douyu?roomNo=${roomNo}`, { CROSheadersGET })
         .then(res => res.json())
-        .then(data => data.flv)
+        .then(data => data.stream)
         // .catch(err => console.log(err))
 
 export const queryBilibiliRoom = (roomNo) =>

@@ -29,9 +29,9 @@ class DouyuStream extends Component{
 
     queryDouyuPy = (roomNo) => {
         realURLsAPI.queryDouyuRoom(roomNo)
-            .then((flv) => {
+            .then((stream) => {
                // this.trim(stream)
-                this.setState({douyuStream: flv})
+                this.setState({douyuStream: stream.flv})
             })
     }
     queryBilibiliPy = (roomNo) => {
