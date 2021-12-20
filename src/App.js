@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Router, Route} from 'react-router-dom'
 import DouyuStream from './DouyuStream'
+import Sukiya from './Sukiya'
 // import CreateContact from './CreateContact';
 // import * as ContactsAPI from './utils/ContactsAPI'
 
@@ -46,6 +47,9 @@ class App extends Component {
                   />
               )}/>
 
+                <Route path="/sukiya" exact render = {
+                    ()=> (<Sukiya/>)
+                }/>
 
               {/*<Route path="/create" render={ ({history}) =>(*/}
 

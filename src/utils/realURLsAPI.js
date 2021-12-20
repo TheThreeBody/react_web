@@ -38,6 +38,14 @@ export const queryBilibiliRoom = (roomNo) =>
         .then(data => data.stream)
         // .catch(err => console.log(err))
 
+export const querySukiya = (query) =>
+    fetch(`${api}/sukiya?link=${query}`, {
+        CROSheadersGET,
+        // body: JSON.stringify(query)
+    })
+        .then(res => res.json())
+        .then(data => data)
+
 export const getAll = () =>
   fetch(`${api}/contacts`, { headers })
     .then(res => res.json())
