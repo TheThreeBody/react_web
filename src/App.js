@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Router, Route} from 'react-router-dom'
+import {Router, Route, Switch} from 'react-router-dom'
 import DouyuStream from './DouyuStream'
 import Sukiya from './Sukiya'
 // import CreateContact from './CreateContact';
@@ -39,7 +39,7 @@ class App extends Component {
 
     render() {
         return (
-            <div>
+            <Switch>
               <Route path="/" exact render= {()=> (
                   <DouyuStream
                       // onDeleteContact={this.removeContact}
@@ -47,7 +47,7 @@ class App extends Component {
                   />
               )}/>
 
-                <Route path="/sukiya" exact render = {
+                <Route path="/sukiya" render = {
                     ()=> (<Sukiya/>)
                 }/>
 
@@ -62,7 +62,7 @@ class App extends Component {
               {/*)}/>*/}
 
               <Route exact path="/test" />
-            </div>
+            </Switch>
         )
     }
 }

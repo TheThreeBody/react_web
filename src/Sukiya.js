@@ -41,6 +41,9 @@ class Sukiya extends Component{
                     onChange={(event) => this.updateQuery(event.target.value)}
                     onKeyDown={(e) => this.handleEnterKey(e)}
                 />
+                <button onClick={() => this.handleQuery(encodeStr)}>
+                    sukiya生成
+                </button>
                 <br/>
                 <p>
                     食其家discountNo：{discountNo}
