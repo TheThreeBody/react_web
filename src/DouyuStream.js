@@ -133,7 +133,8 @@ class DouyuStream extends Component{
                 <div>
                     <h3>My Google Maps Demo</h3>
                     <RGMaps
-                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAglMAlYae3eTPg7hSwp3f2YCOhATkz7Zk&v=3.exp&libraries=geometry,drawing,places"
+                        // googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAglMAlYae3eTPg7hSwp3f2YCOhATkz7Zk&v=3.exp&libraries=geometry,drawing,places"
+                        googleMapURL="http://ditu.google.cn/maps/api/js?key=AIzaSyAglMAlYae3eTPg7hSwp3f2YCOhATkz7Zk&callback=initMap&libraries=drawing"
                         loadingElement={<div style={{ height: `100%` }} />}
                         containerElement={<div style={{ height: `400px` }} />}
                         mapElement={<div style={{ height: `100%` }} />}
