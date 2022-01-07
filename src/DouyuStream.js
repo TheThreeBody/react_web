@@ -6,6 +6,8 @@ import * as realURLsAPI from './utils/realURLsAPI'
 import * as browserOS from './utils/browserOS'
 // import sortBy from 'sort-by'
 
+import RGMaps from './RGMaps'
+
 const DADI_LION = 'http://dyscdnali1.douyucdn.cn/live/122024r69JkBOUVs.flv';
 
 class DouyuStream extends Component{
@@ -126,6 +128,18 @@ class DouyuStream extends Component{
                         打开房间直播源{bilibiliURL}
                         {/*复制*/}
                     </a>
+                </div>
+                <br/>
+                <div>
+                    <h3>My Google Maps Demo</h3>
+                    <RGMaps
+                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAglMAlYae3eTPg7hSwp3f2YCOhATkz7Zk&v=3.exp&libraries=geometry,drawing,places"
+                        loadingElement={<div style={{ height: `100%` }} />}
+                        containerElement={<div style={{ height: `400px` }} />}
+                        mapElement={<div style={{ height: `100%` }} />}
+                    />
+                    {/*<script src="http://ditu.google.cn/maps/api/js?key=AIzaSyAglMAlYae3eTPg7hSwp3f2YCOhATkz7Zk&callback=initMap&libraries=drawing"*/}
+                            {/*type="text/javascript"></script>*/}
                 </div>
             </div>
         );
