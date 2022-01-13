@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {Router, Route, Switch} from 'react-router-dom'
-import DouyuStream from './DouyuStream'
-import Sukiya from './Sukiya'
+import {Router, Route, Switch} from 'react-router-dom';
+import DouyuStream from './DouyuStream';
+import Sukiya from './Sukiya';
+import CoronaMap from './CoronaMap';
 // import CreateContact from './CreateContact';
-// import * as ContactsAPI from './utils/ContactsAPI'
+// import * as ContactsAPI from './utils/ContactsAPI';
 
 
 class App extends Component {
@@ -40,16 +41,20 @@ class App extends Component {
     render() {
         return (
             <Switch>
-              <Route path="/" exact render= {()=> (
+                <Route path="/" exact render= {()=> (
                   <DouyuStream
                       // onDeleteContact={this.removeContact}
                       // contacts={this.state.contacts}
                   />
-              )}/>
+                )}/>
 
-                <Route path="/sukiya" render = {
-                    ()=> (<Sukiya/>)
-                }/>
+                <Route path="/map" exact render= {()=> (
+                    <CoronaMap/>
+                )}/>
+
+                <Route path="/sukiya" render = {()=> (
+                    <Sukiya/>
+                )}/>
 
               {/*<Route path="/create" render={ ({history}) =>(*/}
 
