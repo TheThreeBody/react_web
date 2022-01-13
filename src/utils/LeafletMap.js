@@ -2,29 +2,28 @@
 * https://react-leaflet.js.org/docs/
 * issue:
 * https://stackoverflow.com/questions/67551922/cra-react-leaflet-failed-to-compile
+* https://github.com/PaulLeCam/react-leaflet/issues/881
 * */
 import React, { PureComponent, Fragment } from 'react';
 import { Map, MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import L from 'leaflet'
 
-export default class LeafletMap extends PureComponent {
+const position = [51.505, -0.09]
 
-    render() {
-        return (
-            <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={[51.505, -0.09]}>
-                    <Popup>
-                        A pretty CSS3 popup. <br/> Easily customizable.
-                    </Popup>
-                </Marker>
-            </MapContainer>
-        )
-    }
+function LeafletMap (){
+
+    return (
+        <MapContainer center={position} zoom={13} style={{ width: '100vw', height: '100vh' }}>
+            <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={position} icon={L.divIcon({ html: '我是 div icon' })}/>
+        </MapContainer>
+    )
 }
 
+export default LeafletMap
 /*
 * ./node_modules/@react-leaflet/core/esm/path.js 10:41
 Module parse failed: Unexpected token (10:41)

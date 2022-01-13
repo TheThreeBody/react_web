@@ -4,8 +4,8 @@ import * as realURLsAPI from './utils/realURLsAPI'
 class Sukiya extends Component{
 
     state = {
-        decodeStr:'http://cn-sukiya.csfeedback.net/sv/cn/RCN1209202100012099528818',
-        encodeStr:'http%3A%2F%2Fcn-sukiya.csfeedback.net%2Fsv%2Fcn%2FRCN1209202100012099528818',
+        decodeStr:'',
+        encodeStr:'',
         discountNo:''
     }
 
@@ -33,7 +33,7 @@ class Sukiya extends Component{
 
         return (
             <div className='list-platforms'>
-                <input
+                <input style={{ width: '40%' }}
                     className='query-link'
                     type='text'
                     placeholder='输入食其家网址 例:http://cn-sukiya.csfeedback.net/sv/cn/RCN1109212000012010326913'
@@ -51,6 +51,12 @@ class Sukiya extends Component{
                     encodeStr:<br/>{encodeStr}
                     <br/>
                     decodeStr:<br/>{decodeStr}
+                </p>
+                <br/>
+                <p>
+                    http://cn-sukiya.csfeedback.net/sv/cn/RCN1209202100012099528818
+                <br/>
+                    http%3A%2F%2Fcn-sukiya.csfeedback.net%2Fsv%2Fcn%2FRCN1209202100012099528818
                 </p>
 
             </div>

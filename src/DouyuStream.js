@@ -12,8 +12,8 @@ class DouyuStream extends Component{
 
     state = {
         OS:'windows',
-        roomNo : '122024',
-        douyuStream: '',
+        roomNo : '',
+        douyuStream: DADI_LION,
         bilibiliStream:''
     }
 
@@ -53,6 +53,10 @@ class DouyuStream extends Component{
         }
     }
 
+    preventJumpTag = (e) => {
+        e.preventDefault()
+    }
+
     render() {
 
         const {OS, roomNo, douyuStream,bilibiliStream} = this.state;
@@ -82,7 +86,8 @@ class DouyuStream extends Component{
                     <a
                         className="add-contact"
                         href={douyuURL}
-                        target="_blank"
+                        // target="_blank"
+                        // onclick={() => this.preventJumpTag}
                     >
                         打开房间直播源{douyuStream}
                         {/*复制*/}
@@ -121,12 +126,18 @@ class DouyuStream extends Component{
                     <a
                         className="add-contact"
                         href={bilibiliURL}
-                        target="_blank"
+                        // target="_blank"
                     >
                         打开房间直播源{bilibiliURL}
                         {/*复制*/}
                     </a>
                 </div>
+                <p>
+                    老B直播号：
+                    235520
+                    小铅笔：
+                    703246
+                </p>
                 <br/>
             </div>
         );
