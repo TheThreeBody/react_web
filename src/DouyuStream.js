@@ -5,6 +5,7 @@ import escapeRegExp from 'escape-string-regexp'
 import * as realURLsAPI from './utils/realURLsAPI'
 import * as browserOS from './utils/browserOS'
 // import sortBy from 'sort-by'
+import _ from 'underscore';
 
 const DADI_LION = 'http://dyscdnali1.douyucdn.cn/live/122024r69JkBOUVs.flv';
 
@@ -13,7 +14,7 @@ class DouyuStream extends Component{
     state = {
         OS:'windows',
         roomNo : '',
-        douyuStream: DADI_LION,
+        douyuStream: '',
         bilibiliStream:''
     }
 
@@ -31,7 +32,7 @@ class DouyuStream extends Component{
         realURLsAPI.queryDouyuRoom(roomNo)
             .then((stream) => {
                // this.trim(stream)
-                this.setState({douyuStream: stream.flv})
+                this.setState({douyuStream: stream.x_p2p})
             })
     }
     queryBilibiliPy = (roomNo) => {
@@ -51,6 +52,10 @@ class DouyuStream extends Component{
         if(e.nativeEvent.keyCode === 13){ //e.nativeEvent获取原生的事件对像
             this.handleQuery(this.state.roomNo)
         }
+    }
+
+    urlScheme = (url) => {
+        return browserOS.isMac() ? `iina://open?url=${url}` : `potplayer://${url}`;
     }
 
     preventJumpTag = (e) => {
@@ -83,6 +88,17 @@ class DouyuStream extends Component{
                     <p>
                         斗鱼Link:
                     </p>
+                    {/*{ _.map(douyuStream,(v,k) =>(*/}
+                        {/*<a*/}
+                            {/*className="add-contact"*/}
+                            {/*href={this.urlScheme(v)}*/}
+                            {/*// target="_blank"*/}
+                            {/*// onclick={() => this.preventJumpTag}*/}
+                        {/*>*/}
+                            {/*打开房间直播源{this.urlScheme(v)}*/}
+                            {/*/!*复制*!/*/}
+                        {/*</a>*/}
+                    {/*))}*/}
                     <a
                         className="add-contact"
                         href={douyuURL}
@@ -137,6 +153,8 @@ class DouyuStream extends Component{
                     235520
                     小铅笔：
                     703246
+                    sumiya:
+                    6567483
                     晚上唠嗑B站小姐姐：
                     712030
                 </p>
