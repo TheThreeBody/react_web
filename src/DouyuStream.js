@@ -39,7 +39,7 @@ class DouyuStream extends Component{
         realURLsAPI.queryBilibiliRoom(roomNo)
             .then((stream) => {
                 // this.trim(stream)
-                this.setState({bilibiliStream: stream})
+                this.setState({bilibiliStream: stream.line1})
             })
     }
 
