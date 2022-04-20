@@ -32,7 +32,7 @@ class DouyuStream extends Component{
         realURLsAPI.queryDouyuRoom(roomNo)
             .then((stream) => {
                // this.trim(stream)
-                this.setState({douyuStream: stream.x_p2p})
+                this.setState({douyuStream: stream})
             })
     }
     queryBilibiliPy = (roomNo) => {
@@ -88,26 +88,32 @@ class DouyuStream extends Component{
                     <p>
                         斗鱼Link:
                     </p>
-                    {/*{ _.map(douyuStream,(v,k) =>(*/}
-                        {/*<a*/}
-                            {/*className="add-contact"*/}
-                            {/*href={this.urlScheme(v)}*/}
-                            {/*// target="_blank"*/}
-                            {/*// onclick={() => this.preventJumpTag}*/}
-                        {/*>*/}
-                            {/*打开房间直播源{this.urlScheme(v)}*/}
-                            {/*/!*复制*!/*/}
-                        {/*</a>*/}
-                    {/*))}*/}
-                    <a
-                        className="add-contact"
-                        href={douyuURL}
-                        // target="_blank"
-                        // onclick={() => this.preventJumpTag}
-                    >
-                        打开房间直播源{douyuStream}
-                        {/*复制*/}
-                    </a>
+                    {_.map(douyuStream,(v,k) =>(
+                        <div>
+                            <p>
+                                {k} :
+                            </p>
+                            <a
+                                className="add-contact"
+                                href={this.urlScheme(v)}
+                                // target="_blank"
+                                // onclick={() => this.preventJumpTag}
+                            >
+                                打开房间直播源{this.urlScheme(v)}
+                                {/*复制*/}
+                            </a>
+                            <br/>
+                        </div>
+                    ))}
+                    {/*<a*/}
+                        {/*className="add-contact"*/}
+                        {/*href={douyuURL}*/}
+                        {/*// target="_blank"*/}
+                        {/*// onclick={() => this.preventJumpTag}*/}
+                    {/*>*/}
+                        {/*打开房间直播源{douyuStream}*/}
+                        {/*/!*复制*!/*/}
+                    {/*</a>*/}
                     <br/>
                     手机版开发中
                     {/*OS === 'android'?*/}
@@ -155,6 +161,8 @@ class DouyuStream extends Component{
                     703246
                     sumiya:
                     6567483
+                    刘老师：
+                    8039110
                     晚上唠嗑B站小姐姐：
                     712030
                 </p>
