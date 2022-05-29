@@ -8,17 +8,17 @@ import React, { PureComponent, Fragment } from 'react';
 import { Map, MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 
-const position = [51.505, -0.09]
+const position = [31.2827550, 121.4841503]
 
 function LeafletMap (){
 
     return (
-        <MapContainer center={position} zoom={13} style={{ width: '100vw', height: '100vh' }}>
+        <MapContainer center={position} zoom={15} style={{ width: '100vw', height: '100vh' }}>
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={position} icon={L.divIcon({ html: '我是 div icon' })}/>
+            <Marker position={position} icon={L.divIcon({ html: '玉田路402号' })}/>
         </MapContainer>
     )
 }
